@@ -233,9 +233,9 @@ function StepSize({ data, onChange, onNext, onBack }) {
             justifyContent: "space-between", alignItems: "center",
             cursor: "pointer", fontFamily: "'Inter', sans-serif", transition: "all .15s",
           }}>
-            <div>
+            <div style={{ flex: 1, textAlign: "left" }}>
               <div style={{ fontWeight: 600, color: C.text, fontSize: 15 }}>{s.label}</div>
-              <div style={{ color: C.muted, fontSize: 13 }}>{s.sub}</div>
+              <div style={{ color: C.muted, fontSize: 13, marginTop: 3 }}>{s.sub}</div>
             </div>
             <div style={{
               width: 22, height: 22, borderRadius: 99,
