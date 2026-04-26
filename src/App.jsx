@@ -529,7 +529,7 @@ function Results({ result, onRestart }) {
           <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800, color: C.text, marginBottom: 12 }}>Ready to implement?</h3>
           <p style={{ color: C.muted, fontSize: 14, marginBottom: 24, lineHeight: 1.7 }}>Agentlyze guides you through every step — tool selection, configuration, and measuring ROI — with no IT team needed.</p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Btn style={{ fontSize: 15, padding: "14px 28px" }}>Book a Free Strategy Call</Btn>
+            <Btn style={{ fontSize: 15, padding: "14px 28px" }} onClick={() => window.Calendly?.initPopupWidget({ url: "https://calendly.com/agentlyze/30min" })}>Book a Free Strategy Call</Btn>
             <Btn variant="ghost" onClick={onRestart} style={{ fontSize: 15 }}>Retake Assessment</Btn>
           </div>
         </div>
