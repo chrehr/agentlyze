@@ -61,7 +61,7 @@ Return 4-6 opportunities ranked by ROI potential, specific to their industry and
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 1800,
         messages: [{ role: 'user', content: prompt }],
       }),
