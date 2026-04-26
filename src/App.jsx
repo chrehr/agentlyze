@@ -16,7 +16,7 @@ const C = {
 };
 
 const GOOGLE_FONT = `
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 `;
 
 // ── Step data ─────────────────────────────────────────────────
@@ -88,7 +88,7 @@ function GlowDot({ color, x, y, size = 300, opacity = 0.18 }) {
 
 function Logo({ size = 22 }) {
   return (
-    <span style={{ fontFamily: "'Syne', sans-serif", fontSize: size, letterSpacing: "-0.5px", color: C.text }}>
+    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: size, letterSpacing: "-0.5px", color: C.text }}>
       agent<span style={{ color: C.purple }}>lyze</span>
     </span>
   );
@@ -106,7 +106,7 @@ function Pill({ children, color = C.cyan }) {
 
 function Btn({ children, onClick, variant = "primary", disabled = false, style = {} }) {
   const base = {
-    border: "none", borderRadius: 12, fontFamily: "'DM Sans', sans-serif",
+    border: "none", borderRadius: 12, fontFamily: "'Inter', sans-serif",
     fontWeight: 600, cursor: disabled ? "not-allowed" : "pointer",
     transition: "all .2s", padding: "14px 28px", fontSize: 15,
     opacity: disabled ? 0.45 : 1, ...style,
@@ -142,7 +142,7 @@ function StepShell({ step, total, title, subtitle, children, onBack, onNext, nex
         </div>
         <Progress step={step} total={total} />
         <p style={{ color: C.muted, fontSize: 13, marginBottom: 8 }}>Step {step} of {total}</p>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(22px,4vw,30px)", fontWeight: 700, color: C.text, marginBottom: 8 }}>{title}</h2>
+        <h2 style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(22px,4vw,30px)", fontWeight: 700, color: C.text, marginBottom: 8 }}>{title}</h2>
         <p style={{ color: C.muted, fontSize: 15, marginBottom: 32, lineHeight: 1.6 }}>{subtitle}</p>
         {children}
         <div style={{ display: "flex", gap: 12, marginTop: 32 }}>
@@ -163,7 +163,7 @@ function Landing({ onStart }) {
     { icon: "🗺️", title: "Implementation Roadmap", desc: "Step-by-step plan to go from 0 to measurable results" },
   ];
   return (
-    <div style={{ minHeight: "100vh", background: C.bg, display: "flex", flexDirection: "column", alignItems: "center", position: "relative", overflow: "hidden" }}>
+    <div style={{ minHeight: "100vh", background: C.bg, display: "flex", flexDirection: "column", alignItems: "center", position: "relative", overflow: "hidden", width: "100%" }}>
       <GlowDot color={C.purple} x="20%" y="20%" size={500} opacity={0.12} />
       <GlowDot color={C.cyan} x="80%" y="10%" size={400} opacity={0.1} />
       <GlowDot color={C.purple} x="70%" y="70%" size={400} opacity={0.08} />
@@ -171,9 +171,9 @@ function Landing({ onStart }) {
         <Logo size={24} />
         <Pill>✦ AI Adoption Platform</Pill>
       </nav>
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "60px 24px 40px", position: "relative", zIndex: 5, maxWidth: 800 }}>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "60px 24px 40px", position: "relative", zIndex: 5, maxWidth: 800, width: "100%", overflow: "hidden" }}>
         <div style={{ marginBottom: 20 }}><Pill color={C.cyan}>Free Assessment · 3 minutes</Pill></div>
-        <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(40px,6vw,72px)", fontWeight: 800, lineHeight: 1.05, margin: "0 0 24px", color: C.text }}>
+        <h1 style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(28px,7vw,68px)", fontWeight: 900, lineHeight: 1.08, margin: "0 0 24px", color: C.text, wordBreak: "break-word", overflowWrap: "break-word", width: "100%", padding: "0 8px" }}>
           Stop overthinking.<br />
           <span style={{ background: `linear-gradient(135deg, ${C.cyan}, ${C.purple})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Start implementing.</span>
         </h1>
@@ -212,7 +212,7 @@ function StepIndustry({ data, onChange, onNext, onBack }) {
             border: `1px solid ${data.industry === ind ? C.purple : C.border}`,
             borderRadius: 12, padding: "14px 16px", textAlign: "left", cursor: "pointer",
             color: data.industry === ind ? C.text : C.muted,
-            fontFamily: "'DM Sans', sans-serif", fontSize: 14,
+            fontFamily: "'Inter', sans-serif", fontSize: 14,
             fontWeight: data.industry === ind ? 600 : 400, transition: "all .15s",
           }}>{ind}</button>
         ))}
@@ -231,7 +231,7 @@ function StepSize({ data, onChange, onNext, onBack }) {
             border: `1px solid ${data.companySize === s.val ? C.purple : C.border}`,
             borderRadius: 14, padding: "18px 20px", display: "flex",
             justifyContent: "space-between", alignItems: "center",
-            cursor: "pointer", fontFamily: "'DM Sans', sans-serif", transition: "all .15s",
+            cursor: "pointer", fontFamily: "'Inter', sans-serif", transition: "all .15s",
           }}>
             <div>
               <div style={{ fontWeight: 600, color: C.text, fontSize: 15 }}>{s.label}</div>
@@ -266,7 +266,7 @@ function StepWorkflows({ data, onChange, onNext, onBack }) {
               border: `1px solid ${on ? C.purple : C.border}`,
               borderRadius: 12, padding: "14px 14px", display: "flex",
               alignItems: "center", gap: 10, cursor: "pointer",
-              fontFamily: "'DM Sans', sans-serif", transition: "all .15s",
+              fontFamily: "'Inter', sans-serif", transition: "all .15s",
             }}>
               <span style={{ fontSize: 20 }}>{w.icon}</span>
               <span style={{ color: on ? C.text : C.muted, fontWeight: on ? 600 : 400, fontSize: 13 }}>{w.label}</span>
@@ -294,7 +294,7 @@ function StepPains({ data, onChange, onNext, onBack }) {
               background: on ? C.purpleDim : C.surface,
               border: `1px solid ${on ? C.purple : C.border}`,
               borderRadius: 12, padding: "14px 16px", textAlign: "left", cursor: "pointer",
-              color: on ? C.text : C.muted, fontFamily: "'DM Sans', sans-serif",
+              color: on ? C.text : C.muted, fontFamily: "'Inter', sans-serif",
               fontSize: 14, fontWeight: on ? 600 : 400, transition: "all .15s",
             }}>{on ? "✓ " : ""}{p}</button>
           );
@@ -306,7 +306,7 @@ function StepPains({ data, onChange, onNext, onBack }) {
           placeholder="e.g. Excel, Slack, HubSpot, Google Workspace..."
           rows={2} style={{
             width: "100%", background: C.surface, border: `1px solid ${C.border}`,
-            borderRadius: 12, color: C.text, fontFamily: "'DM Sans', sans-serif",
+            borderRadius: 12, color: C.text, fontFamily: "'Inter', sans-serif",
             fontSize: 14, padding: "12px 16px", resize: "vertical", outline: "none", boxSizing: "border-box",
           }} />
       </div>
@@ -328,7 +328,7 @@ function StepBudget({ data, onChange, onNext, onBack, error }) {
             background: data.budget === b.val ? C.purpleDim : C.surface,
             border: `1px solid ${data.budget === b.val ? C.purple : C.border}`,
             borderRadius: 14, padding: "18px 16px", cursor: "pointer",
-            fontFamily: "'DM Sans', sans-serif", textAlign: "left", transition: "all .15s",
+            fontFamily: "'Inter', sans-serif", textAlign: "left", transition: "all .15s",
           }}>
             <div style={{ fontWeight: 600, color: C.text, fontSize: 15, marginBottom: 4 }}>{b.label}</div>
             <div style={{ color: C.muted, fontSize: 13 }}>{b.sub}</div>
@@ -341,7 +341,7 @@ function StepBudget({ data, onChange, onNext, onBack, error }) {
           placeholder="e.g. We're a bakery chain trying to reduce order errors..."
           rows={3} style={{
             width: "100%", background: C.surface, border: `1px solid ${C.border}`,
-            borderRadius: 12, color: C.text, fontFamily: "'DM Sans', sans-serif",
+            borderRadius: 12, color: C.text, fontFamily: "'Inter', sans-serif",
             fontSize: 14, padding: "12px 16px", resize: "vertical", outline: "none", boxSizing: "border-box",
           }} />
       </div>
@@ -402,7 +402,7 @@ function ScoreRing({ score }) {
         </defs>
       </svg>
       <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-        <span style={{ fontFamily: "'Syne', sans-serif", fontSize: 26, fontWeight: 800, color: C.text }}>{score}</span>
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 26, fontWeight: 800, color: C.text }}>{score}</span>
         <span style={{ color: C.muted, fontSize: 10 }}>/ 100</span>
       </div>
     </div>
@@ -430,7 +430,7 @@ function Results({ result, onRestart }) {
           <div style={{ display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}>
             <ScoreRing score={result.readinessScore} />
             <div style={{ flex: 1, minWidth: 200 }}>
-              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800, color: C.text, margin: "0 0 8px" }}>
+              <h2 style={{ fontFamily: "'Inter', sans-serif", fontSize: 22, fontWeight: 800, color: C.text, margin: "0 0 8px" }}>
                 AI Readiness: {result.readinessLabel}
               </h2>
               <p style={{ color: C.muted, fontSize: 14, lineHeight: 1.7, margin: 0 }}>{result.readinessSummary}</p>
@@ -443,7 +443,7 @@ function Results({ result, onRestart }) {
         </div>
 
         {/* ROI strip */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, marginBottom: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 12, marginBottom: 20 }}>
           {[
             { label: "Time Saved", val: result.estimatedROI.timesSaved, icon: "⏱️" },
             { label: "Est. Annual Saving", val: result.estimatedROI.costSaving, icon: "💰" },
@@ -451,14 +451,14 @@ function Results({ result, onRestart }) {
           ].map(r => (
             <div key={r.label} style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 14, padding: "16px 18px" }}>
               <div style={{ fontSize: 20, marginBottom: 6 }}>{r.icon}</div>
-              <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 20, fontWeight: 700, color: C.cyan }}>{r.val}</div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 20, fontWeight: 700, color: C.cyan }}>{r.val}</div>
               <div style={{ color: C.muted, fontSize: 12 }}>{r.label}</div>
             </div>
           ))}
         </div>
 
         {/* Opportunities */}
-        <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 18, fontWeight: 700, color: C.text, marginBottom: 14 }}>Top AI Opportunities</h3>
+        <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: 18, fontWeight: 700, color: C.text, marginBottom: 14 }}>Top AI Opportunities</h3>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 20 }}>
           {sorted.map((opp, i) => {
             const open = expanded === i;
@@ -497,7 +497,7 @@ function Results({ result, onRestart }) {
         </div>
 
         {/* Roadmap */}
-        <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 18, fontWeight: 700, color: C.text, marginBottom: 14 }}>Implementation Roadmap</h3>
+        <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: 18, fontWeight: 700, color: C.text, marginBottom: 14 }}>Implementation Roadmap</h3>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 20 }}>
           {result.roadmap.map((phase, i) => (
             <div key={i} style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 16, padding: "20px 22px" }}>
@@ -515,7 +515,7 @@ function Results({ result, onRestart }) {
         {/* Risk flags */}
         {result.riskFlags?.length > 0 && (
           <>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 18, fontWeight: 700, color: C.text, marginBottom: 14 }}>⚠️ Watch Out For</h3>
+            <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: 18, fontWeight: 700, color: C.text, marginBottom: 14 }}>⚠️ Watch Out For</h3>
             <div style={{ background: C.surface, border: `1px solid rgba(255,200,0,0.15)`, borderRadius: 16, padding: "18px 22px", marginBottom: 24 }}>
               <ul style={{ margin: 0, padding: "0 0 0 18px" }}>
                 {result.riskFlags.map((r, i) => <li key={i} style={{ color: C.muted, fontSize: 14, lineHeight: 1.8 }}>{r}</li>)}
@@ -526,7 +526,7 @@ function Results({ result, onRestart }) {
 
         {/* CTA */}
         <div style={{ background: `linear-gradient(135deg, ${C.purpleDim}, ${C.cyanDim})`, border: `1px solid rgba(124,58,237,0.25)`, borderRadius: 20, padding: "32px 28px", textAlign: "center" }}>
-          <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800, color: C.text, marginBottom: 12 }}>Ready to implement?</h3>
+          <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: 22, fontWeight: 800, color: C.text, marginBottom: 12 }}>Ready to implement?</h3>
           <p style={{ color: C.muted, fontSize: 14, marginBottom: 24, lineHeight: 1.7 }}>Agentlyze guides you through every step — tool selection, configuration, and measuring ROI — with no IT team needed.</p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Btn style={{ fontSize: 15, padding: "14px 28px" }} onClick={() => window.Calendly?.initPopupWidget({ url: "https://calendly.com/agentlyze/30min" })}>Book a Free Strategy Call</Btn>
@@ -571,7 +571,7 @@ export default function App() {
     <>
       <style>{GOOGLE_FONT}{`
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:'DM Sans',sans-serif;background:${C.bg};color:${C.text}}
+        body{font-family:'Inter',sans-serif;background:${C.bg};color:${C.text};overflow-x:hidden}
         ::-webkit-scrollbar{width:6px}
         ::-webkit-scrollbar-track{background:${C.bg}}
         ::-webkit-scrollbar-thumb{background:${C.surface};border-radius:99px}
